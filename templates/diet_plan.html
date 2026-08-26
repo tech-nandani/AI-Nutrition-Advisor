@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}
+Diet Plan | AI Nutrition Advisor
+{% endblock %}
+
+
+{% block content %}
+
+<div class="diet-plan-page">
+
+    <!-- HEADER -->
+
+    <div class="page-header">
+
+        <div>
+            <h1>My Diet Plan 🍽️</h1>
+
+            <p>
+                Personalized nutrition plan based on your health goal
+                and food preference.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- USER PREFERENCE -->
+
+    <div class="diet-info">
+
+        <div class="diet-info-box">
+
+            <span>🎯</span>
+
+            <div>
+                <p>Health Goal</p>
+
+                <h3>{{ goal }}</h3>
+            </div>
+
+        </div>
+
+
+        <div class="diet-info-box">
+
+            <span>🥗</span>
+
+            <div>
+                <p>Food Preference</p>
+
+                <h3>{{ food_preference }}</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MEAL PLAN -->
+
+    <div class="meal-plan-section">
+
+        <h2>Today's Meal Plan</h2>
+
+
+        <div class="meal-cards">
+
+
+            <!-- BREAKFAST -->
+
+            <div class="meal-card">
+
+                <div class="meal-title">
+
+                    <span>🌅</span>
+
+                    <div>
+
+                        <h3>Breakfast</h3>
+
+                        <p>Start your day with healthy energy</p>
+
+                    </div>
+
+                </div>
+
+
+                <ul>
+
+                    {% for food in diet.breakfast %}
+
+                        <li>{{ food }}</li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- LUNCH -->
+
+            <div class="meal-card">
+
+                <div class="meal-title">
+
+                    <span>☀️</span>
+
+                    <div>
+
+                        <h3>Lunch</h3>
+
+                        <p>A balanced and nutritious meal</p>
+
+                    </div>
+
+                </div>
+
+
+                <ul>
+
+                    {% for food in diet.lunch %}
+
+                        <li>{{ food }}</li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- SNACK -->
+
+            <div class="meal-card">
+
+                <div class="meal-title">
+
+                    <span>🍎</span>
+
+                    <div>
+
+                        <h3>Evening Snack</h3>
+
+                        <p>A light and healthy snack</p>
+
+                    </div>
+
+                </div>
+
+
+                <ul>
+
+                    {% for food in diet.snack %}
+
+                        <li>{{ food }}</li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- DINNER -->
+
+            <div class="meal-card">
+
+                <div class="meal-title">
+
+                    <span>🌙</span>
+
+                    <div>
+
+                        <h3>Dinner</h3>
+
+                        <p>Finish your day with balanced nutrition</p>
+
+                    </div>
+
+                </div>
+
+
+                <ul>
+
+                    {% for food in diet.dinner %}
+
+                        <li>{{ food }}</li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- NOTE -->
+
+    <div class="diet-note">
+
+        <h3>💡 Nutrition Tip</h3>
+
+        <p>
+            Your meal plan is generated according to your selected food
+            preference. Remember to stay hydrated and maintain balanced
+            portions throughout the day.
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

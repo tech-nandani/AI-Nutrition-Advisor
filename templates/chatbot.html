@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block title %}
+AI Chatbot | AI Nutrition Advisor
+{% endblock %}
+
+
+{% block content %}
+
+<!-- CHATBOT HEADER -->
+
+<div class="chatbot-header">
+
+    <div>
+
+        <h1>AI Nutrition Chatbot</h1>
+
+        <p>
+            Ask me anything about nutrition, healthy eating and your diet.
+        </p>
+
+    </div>
+
+
+    <div class="chatbot-avatar">
+        🤖
+    </div>
+
+</div>
+
+
+
+<!-- CHAT SECTION -->
+
+<div class="chat-section">
+
+
+    <!-- CHAT BOX -->
+
+    <div class="chat-box" id="chatBox">
+
+
+        <!-- DEFAULT BOT MESSAGE -->
+
+        <div class="chat-message bot-message">
+
+
+            <div class="bot-icon">
+                🤖
+            </div>
+
+
+            <div class="message-content">
+
+                <strong>
+                    AI Nutrition Assistant
+                </strong>
+
+
+                <p>
+                    Hello! 👋 I am your AI Nutrition Advisor.
+                    Ask me anything about healthy food, calories,
+                    diet plans or nutrition.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- QUICK QUESTIONS -->
+
+    <div class="quick-question-section">
+
+
+        <p>Try asking:</p>
+
+
+        <div class="quick-questions">
+
+
+            <button
+                type="button"
+                class="quick-question"
+            >
+                What foods are good for weight loss?
+            </button>
+
+
+            <button
+                type="button"
+                class="quick-question"
+            >
+                Suggest high-protein vegetarian foods
+            </button>
+
+
+            <button
+                type="button"
+                class="quick-question"
+            >
+                How much water should I drink daily?
+            </button>
+
+
+            <button
+                type="button"
+                class="quick-question"
+            >
+                What is a healthy breakfast?
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- CHAT INPUT -->
+
+    <div class="chat-input-section">
+
+
+        <input
+            type="text"
+            id="userMessage"
+            placeholder="Type your message..."
+        >
+
+
+        <button
+            type="button"
+            id="sendButton"
+        >
+            Send ➤
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- CHATBOT TIPS -->
+
+<div class="chatbot-tips">
+
+
+    <h2>
+        💡 What can I help you with?
+    </h2>
+
+
+    <div class="chatbot-tip-cards">
+
+
+        <!-- CARD 1 -->
+
+        <div class="chatbot-tip-card">
+
+            <span>
+                🥗
+            </span>
+
+            <h3>
+                Healthy Diet
+            </h3>
+
+            <p>
+                Get guidance about healthy eating
+                and balanced meals.
+            </p>
+
+        </div>
+
+
+
+        <!-- CARD 2 -->
+
+        <div class="chatbot-tip-card">
+
+            <span>
+                💪
+            </span>
+
+            <h3>
+                Protein Foods
+            </h3>
+
+            <p>
+                Discover healthy sources of protein
+                for your diet.
+            </p>
+
+        </div>
+
+
+
+        <!-- CARD 3 -->
+
+        <div class="chatbot-tip-card">
+
+            <span>
+                🔥
+            </span>
+
+            <h3>
+                Weight Management
+            </h3>
+
+            <p>
+                Get suggestions for healthy weight
+                loss or weight gain.
+            </p>
+
+        </div>
+
+
+
+        <!-- CARD 4 -->
+
+        <div class="chatbot-tip-card">
+
+            <span>
+                🍎
+            </span>
+
+            <h3>
+                Nutrition Tips
+            </h3>
+
+            <p>
+                Learn simple nutrition tips for
+                a healthier lifestyle.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="{{ url_for('static', filename='css/js/script.js') }}"></script>
+
+
+{% endblock %}

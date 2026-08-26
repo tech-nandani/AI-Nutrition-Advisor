@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard | AI Nutrition Advisor
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-page">
+
+    <div class="page-header">
+        <h1>Health Analysis</h1>
+        <p>Your personalized nutrition and health overview.</p>
+    </div>
+
+    {% if name %}
+    <div class="welcome-message">
+        <h2>Hello, {{ name }} 👋</h2>
+        <p>Here is your personalized health analysis.</p>
+    </div>
+    {% endif %}
+
+
+    <div class="analysis-cards">
+
+        <!-- BMI -->
+        <div class="analysis-card">
+            <h3>BMI</h3>
+
+            <h2>
+                {% if bmi %}
+                    {{ bmi }}
+                {% else %}
+                    --
+                {% endif %}
+            </h2>
+
+            <p>
+                {% if bmi_status %}
+                    {{ bmi_status }}
+                {% else %}
+                    Complete your profile
+                {% endif %}
+            </p>
+        </div>
+
+
+        <!-- DAILY CALORIES -->
+        <div class="analysis-card">
+            <h3>Daily Calories</h3>
+
+            <h2>
+                {% if calories %}
+                    {{ calories }}
+                {% else %}
+                    --
+                {% endif %}
+            </h2>
+
+            <p>kcal/day</p>
+        </div>
+
+
+        <!-- WATER -->
+        <div class="analysis-card">
+            <h3>Water Intake</h3>
+
+            <h2>
+                {% if water %}
+                    {{ water }}
+                {% else %}
+                    --
+                {% endif %}
+            </h2>
+
+            <p>Litres/day</p>
+        </div>
+
+
+        <!-- BMR -->
+        <div class="analysis-card">
+            <h3>BMR</h3>
+
+            <h2>
+                {% if bmr %}
+                    {{ bmr }}
+                {% else %}
+                    --
+                {% endif %}
+            </h2>
+
+            <p>kcal/day</p>
+        </div>
+
+    </div>
+
+
+    <!-- HEALTH ANALYSIS -->
+
+    <div class="health-summary">
+
+        <h2>❤️ Your Health Analysis</h2>
+
+        {% if bmi %}
+
+            {% if bmi_status == "Underweight" %}
+                <p>
+                    Your BMI is in the underweight range. Focus on
+                    nutritious and balanced meals with sufficient protein.
+                </p>
+
+            {% elif bmi_status == "Normal" %}
+                <p>
+                    Great! 🎉 Your BMI is in the normal range.
+                    Maintain a balanced diet and stay physically active.
+                </p>
+
+            {% elif bmi_status == "Overweight" %}
+                <p>
+                    Your BMI is in the overweight range.
+                    Focus on balanced meals and regular physical activity.
+                </p>
+
+            {% else %}
+                <p>
+                    Your BMI is in the obese range.
+                    A balanced diet and regular exercise can help improve
+                    your overall health.
+                </p>
+
+            {% endif %}
+
+        {% else %}
+
+            <p>
+                Please complete your profile to get your personalized
+                health analysis.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- NEXT STEP -->
+
+    <div class="dashboard-action">
+
+        <a href="{{ url_for('diet_plan') }}" class="primary-button">
+            View My Diet Plan →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

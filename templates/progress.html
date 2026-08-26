@@ -1,0 +1,803 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Progress | AI Nutrition Advisor
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ================= PAGE HEADER ================= -->
+
+<section class="progress-header">
+
+    <div>
+
+        <h1>Progress Tracking</h1>
+
+        <p>
+            Track your health journey and stay
+            motivated to achieve your goals.
+        </p>
+
+    </div>
+
+
+    <!-- TIME FILTER -->
+
+    <div class="progress-filter">
+
+        <button class="active-filter">
+            7 Days
+        </button>
+
+        <button>
+            30 Days
+        </button>
+
+        <button>
+            90 Days
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PROGRESS CARDS ================= -->
+
+<section class="progress-cards">
+
+
+    <!-- WEIGHT -->
+
+    <div class="progress-card">
+
+        <div class="progress-card-icon">
+
+            ⚖️
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Current weight
+            </p>
+
+            <h2>
+                {{ weight }} kg
+            </h2>
+
+            <span>
+                Your latest weight
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- WATER -->
+
+    <div class="progress-card">
+
+        <div class="progress-card-icon">
+
+            💧
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Avg. Water Intake
+            </p>
+
+            <h2>
+                2.5 L
+            </h2>
+
+            <span>
+                Daily average
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CALORIES -->
+
+    <div class="progress-card">
+
+        <div class="progress-card-icon">
+
+            🔥
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Avg. Calories
+            </p>
+
+            <h2>
+                1850
+            </h2>
+
+            <span>
+                kcal/day
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- GOAL -->
+
+    <div class="progress-card">
+
+        <div class="progress-card-icon">
+
+            🎯
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Goal Progress
+            </p>
+
+            <h2>
+                60%
+            </h2>
+
+            <span>
+                On Track</span>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= WEIGHT PROGRESS ================= -->
+
+<section class="weight-progress-section">
+
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                Weight Progress
+            </h2>
+
+            <p>
+                Track changes in your weight.
+            </p>
+
+        </div>
+
+
+        <div class="weight-status">
+
+            ↘ 2.5 kg
+
+        </div>
+
+    </div>
+
+
+
+    <!-- GRAPH -->
+
+    <div class="chart-container">
+
+
+       <div class="chart-y-axis" id="chartYAxis">
+</div>
+
+
+        <div class="chart-area">
+
+
+            <div class="chart-grid-line line-one"></div>
+
+            <div class="chart-grid-line line-two"></div>
+
+            <div class="chart-grid-line line-three"></div>
+
+            <div class="chart-grid-line line-four"></div>
+
+            <div class="chart-grid-line line-five"></div>
+
+
+
+            <!-- GRAPH LINE -->
+
+            <svg
+                class="progress-line"
+                viewBox="0 0 600 250"
+                preserveAspectRatio="none">
+
+                <polyline
+                    points="0,40 100,70 200,90 300,120 400,140 500,165 600,190"
+                    fill="none"
+                    stroke="#2f7d4a"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                </polyline>
+
+            </svg>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- DATE LABELS -->
+
+    <div class="chart-dates">
+
+        <span>10 May</span>
+
+        <span>11 May</span>
+
+        <span>12 May</span>
+
+        <span>13 May</span>
+
+        <span>14 May</span>
+
+        <span>15 May</span>
+
+        <span>16 May</span>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= DAILY ACTIVITY ================= -->
+
+<section class="daily-activity-section">
+
+
+    <h2>
+        Daily Activity
+    </h2>
+
+
+    <div class="activity-progress-container">
+
+
+        <!-- WATER -->
+
+        <div class="activity-item">
+
+            <div class="activity-top">
+
+                <span>
+                    💧 Water Intake
+                </span>
+
+                <strong>
+                    80%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div class="progress-fill water-progress">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CALORIES -->
+
+        <div class="activity-item">
+
+            <div class="activity-top">
+
+                <span>
+                    🔥 Calorie Target
+                </span>
+
+                <strong>
+                    75%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div class="progress-fill calorie-progress">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MEALS -->
+
+        <div class="activity-item">
+
+            <div class="activity-top">
+
+                <span>
+                    🍽 Meal Plan
+                </span>
+
+                <strong>
+                    100%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div class="progress-fill meal-progress">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= MOTIVATION ================= -->
+
+<section class="motivation-section">
+
+    <div class="motivation-icon">
+
+        ⭐
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            You are doing great!
+        </h3>
+
+        <p>
+            Keep following your personalized plan.
+            Small healthy choices every day lead to big results.
+        </p>
+
+    </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const filterButtons =
+        document.querySelectorAll(".progress-filter button");
+
+    const graphLine =
+        document.querySelector(".progress-line polyline");
+
+    const chartDates =
+        document.querySelector(".chart-dates");
+
+    const currentWeight =
+        document.querySelector(
+            ".progress-card:nth-child(1) h2"
+        );
+
+    const weightStatus =
+        document.querySelector(".weight-status");
+
+    const chartYAxis =
+        document.getElementById("chartYAxis");
+
+
+    // Actual data coming from Flask database
+
+    const historyDates = JSON.parse('{{ history_dates | tojson | safe }}');
+
+const historyWeights = JSON.parse('{{ history_weights | tojson | safe }}');
+
+    // User current weight
+
+    const userWeight =
+        Number("{{ weight }}") || 0;
+
+
+    // Format date
+
+    function formatDate(dateString) {
+
+        const date = new Date(dateString);
+
+        return date.toLocaleDateString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "short"
+            }
+        );
+
+    }
+
+
+    // Generate Y-axis according to actual weights
+
+    function updateYAxis(weights) {
+
+        chartYAxis.innerHTML = "";
+
+        if (weights.length === 0) {
+            return;
+        }
+
+
+        const maxWeight =
+            Math.max(...weights) + 1;
+
+        const minWeight =
+            Math.min(...weights) - 1;
+
+
+        const difference =
+            (maxWeight - minWeight) / 4;
+
+
+        for (let i = 0; i < 5; i++) {
+
+            const value =
+                maxWeight - (difference * i);
+
+            const span =
+                document.createElement("span");
+
+            span.innerText =
+                value.toFixed(1) + " kg";
+
+            chartYAxis.appendChild(span);
+
+        }
+
+    }
+
+
+    // Convert actual weight data into graph points
+
+    function generateGraphPoints(weights) {
+
+        if (weights.length === 0) {
+            return "";
+        }
+
+
+        if (weights.length === 1) {
+
+            return "0,125 600,125";
+
+        }
+
+
+        const maxWeight =
+            Math.max(...weights);
+
+        const minWeight =
+            Math.min(...weights);
+
+        const range =
+            maxWeight - minWeight || 1;
+
+
+        return weights.map(
+            function (weight, index) {
+
+                const x =
+                    index *
+                    (600 / (weights.length - 1));
+
+                const y =
+                    30 +
+                    (
+                        (maxWeight - weight)
+                        / range
+                    ) * 190;
+
+                return x + "," + y;
+
+            }
+        ).join(" ");
+
+    }
+
+
+    // Update complete graph
+
+    function updateGraph(
+        dates,
+        weights,
+        animate = true
+    ) {
+
+        if (weights.length === 0) {
+
+            graphLine.setAttribute(
+                "points",
+                ""
+            );
+
+            chartDates.innerHTML =
+                "<span>No data available</span>";
+
+            chartYAxis.innerHTML = "";
+
+            return;
+
+        }
+
+
+        if (animate) {
+            graphLine.style.opacity = "0";
+        }
+
+
+        setTimeout(function () {
+
+            const points =
+                generateGraphPoints(weights);
+
+            graphLine.setAttribute(
+                "points",
+                points
+            );
+
+            graphLine.style.opacity = "1";
+
+        }, animate ? 150 : 0);
+
+
+        // Update dates
+
+        chartDates.innerHTML = "";
+
+        dates.forEach(function (date) {
+
+            const dateElement =
+                document.createElement("span");
+
+            dateElement.innerText =
+                formatDate(date);
+
+            chartDates.appendChild(
+                dateElement
+            );
+
+        });
+
+
+        // Update Y-axis
+
+        updateYAxis(weights);
+
+
+        // Latest weight
+
+        currentWeight.innerText =
+            weights[weights.length - 1]
+            + " kg";
+
+
+        // Weight change
+
+        if (weights.length > 1) {
+
+            const change =
+                weights[weights.length - 1]
+                - weights[0];
+
+
+            if (change < 0) {
+
+                weightStatus.innerText =
+                    "↘ "
+                    + Math.abs(change).toFixed(1)
+                    + " kg";
+
+            }
+
+            else if (change > 0) {
+
+                weightStatus.innerText =
+                    "↗ "
+                    + change.toFixed(1)
+                    + " kg";
+
+            }
+
+            else {
+
+                weightStatus.innerText =
+                    "No weight change";
+
+            }
+
+        }
+
+        else {
+
+            weightStatus.innerText =
+                "First weight entry";
+
+        }
+
+    }
+
+
+    // Filter according to selected days
+
+    function filterData(days) {
+
+        const cutoffDate =
+            new Date();
+
+        cutoffDate.setDate(
+            cutoffDate.getDate() - days
+        );
+
+
+        const filteredDates = [];
+        const filteredWeights = [];
+
+
+        historyDates.forEach(
+            function (date, index) {
+
+                const entryDate =
+                    new Date(date);
+
+
+                if (
+                    entryDate >= cutoffDate
+                ) {
+
+                    filteredDates.push(date);
+
+                    filteredWeights.push(
+                        Number(
+                            historyWeights[index]
+                        )
+                    );
+
+                }
+
+            }
+        );
+
+
+        return {
+            dates: filteredDates,
+            weights: filteredWeights
+        };
+
+    }
+
+
+    // Initial graph
+
+    updateGraph(
+        historyDates,
+        historyWeights,
+        false
+    );
+
+
+    // Filter buttons
+
+    filterButtons.forEach(
+        function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    filterButtons.forEach(
+                        function (btn) {
+
+                            btn.classList.remove(
+                                "active-filter"
+                            );
+
+                        }
+                    );
+
+
+                    button.classList.add(
+                        "active-filter"
+                    );
+
+
+                    const text =
+                        button.innerText.trim();
+
+
+                    let days = 7;
+
+
+                    if (text === "30 Days") {
+
+                        days = 30;
+
+                    }
+
+                    else if (
+                        text === "90 Days"
+                    ) {
+
+                        days = 90;
+
+                    }
+
+
+                    const filteredData =
+                        filterData(days);
+
+
+                    updateGraph(
+                        filteredData.dates,
+                        filteredData.weights
+                    );
+
+                }
+            );
+
+        }
+    );
+
+});
+</script>
+{% endblock %}

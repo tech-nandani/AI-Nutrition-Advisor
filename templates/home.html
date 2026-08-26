@@ -1,0 +1,281 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Home | AI Nutrition Advisor
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ================= TOP NAVIGATION ================= -->
+
+<header class="top-navbar">
+
+    <nav class="top-menu">
+
+        <a href="{{ url_for('home') }}">Home</a>
+
+        <a href="{{ url_for('profile') }}">Profile</a>
+
+        <a href="{{ url_for('diet_plan') }}">Diet Plan</a>
+
+        <a href="{{ url_for('chatbot') }}">Chatbot</a>
+
+        <a href="{{ url_for('progress') }}">Progress</a>
+
+        <a href="{{ url_for('about') }}">About Us</a>
+
+    </nav>
+
+
+    <button class="logout-button">
+        Logout
+    </button>
+
+</header>
+
+
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero-section">
+
+    <!-- LEFT SIDE -->
+
+    <div class="hero-content">
+
+        <h1>
+            AI Nutrition Advisor
+        </h1>
+
+
+        <h2>
+            Your Personal AI-Powered
+            <br>
+            Nutrition & Wellness Companion
+        </h2>
+
+
+        <p>
+            Get personalized diet plans, track your progress and achieve
+            your health goals with the power of Artificial Intelligence.
+        </p>
+
+
+        <a href="{{ url_for('profile') }}"
+           class="get-started-btn">
+
+            Get Started
+            <span>→</span>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="hero-image-section">
+
+        <div class="food-background"></div>
+
+
+        <div class="food-circle">
+
+            <div class="food-row">
+                🥬 🥑 🥕
+            </div>
+
+            <div class="food-row">
+                🍅 🥦 🥒
+            </div>
+
+            <div class="food-row">
+                🍓 🥗 🫛
+            </div>
+
+        </div>
+
+
+        <div class="leaf leaf-one">
+            🍃
+        </div>
+
+
+        <div class="leaf leaf-two">
+            🌿
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= WHY CHOOSE SECTION ================= -->
+
+<section class="features-section">
+
+    <h2>
+        Why Choose AI Nutrition Advisor?
+    </h2>
+
+
+    <div class="feature-cards">
+
+
+        <!-- Card 1 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🤖
+            </div>
+
+            <h3>
+                AI-Powered
+            </h3>
+
+            <p>
+                Smart recommendations based
+                on your personal health data.
+            </p>
+
+        </div>
+
+
+
+        <!-- Card 2 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📋
+            </div>
+
+            <h3>
+                Personalized Plans
+            </h3>
+
+            <p>
+                Diet plans tailored to your
+                goals and food preferences.
+            </p>
+
+        </div>
+
+
+
+        <!-- Card 3 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📈
+            </div>
+
+            <h3>
+                Track Progress
+            </h3>
+
+            <p>
+                Monitor your progress
+                and stay on track.
+            </p>
+
+        </div>
+
+
+
+        <!-- Card 4 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ❤️
+            </div>
+
+            <h3>
+                Healthy Lifestyle
+            </h3>
+
+            <p>
+                Build better habits
+                for a healthier you.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= STATISTICS SECTION ================= -->
+
+<section class="statistics-section">
+
+
+    <div class="stat-box">
+
+        <h2>
+            1000+
+        </h2>
+
+        <p>
+            Happy Users
+        </p>
+
+    </div>
+
+
+
+    <div class="stat-box">
+
+        <h2>
+            50+
+        </h2>
+
+        <p>
+            Diet Plans
+        </p>
+
+    </div>
+
+
+
+    <div class="stat-box">
+
+        <h2>
+            20+
+        </h2>
+
+        <p>
+            Nutrition Experts
+        </p>
+
+    </div>
+
+
+
+    <div class="stat-box">
+
+        <h2>
+            95%
+        </h2>
+
+        <p>
+            Success Rate
+        </p>
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

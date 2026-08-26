@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        AI Nutrition Advisor
+        {% endblock %}
+    </title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="app-container">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🌿
+                </div>
+
+                <div class="logo-text">
+                    <h2>AI Nutrition</h2>
+                    <p>Advisor</p>
+                </div>
+
+            </div>
+
+
+            <!-- Navigation Menu -->
+
+            <nav class="sidebar-menu">
+
+                <a href="{{ url_for('home') }}">
+                    <span class="menu-icon">⌂</span>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <a href="{{ url_for('profile') }}">
+                    <span class="menu-icon">👤</span>
+                    <span>Profile</span>
+                </a>
+
+
+                <a href="{{ url_for('diet_plan') }}">
+                    <span class="menu-icon">🍽</span>
+                    <span>Diet Plan</span>
+                </a>
+
+
+                <a href="{{ url_for('chatbot') }}">
+                    <span class="menu-icon">💬</span>
+                    <span>Chatbot</span>
+                </a>
+
+
+                <a href="{{ url_for('progress') }}">
+                    <span class="menu-icon">📈</span>
+                    <span>Progress</span>
+                </a>
+
+
+                <a href="{{ url_for('about') }}">
+                    <span class="menu-icon">⚙</span>
+                    <span>About Us</span>
+                </a>
+
+            </nav>
+
+
+            <!-- Logout -->
+
+            <div class="sidebar-bottom">
+
+                <a href="#">
+                    <span class="menu-icon">⇥</span>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+            {% block content %}
+            {% endblock %}
+
+        </main>
+
+    </div>
+
+
+
+    <!-- JavaScript File -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

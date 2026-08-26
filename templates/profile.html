@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Profile | AI Nutrition Advisor
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ================= PAGE HEADER ================= -->
+
+<section class="profile-header">
+
+    <div>
+
+        <h1>User Profile</h1>
+
+        <p>
+            Tell us about yourself so we can create
+            your personalized nutrition plan.
+        </p>
+
+    </div>
+
+
+    <div class="profile-avatar">
+
+        👤
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PROFILE FORM ================= -->
+
+<section class="profile-form-section">
+
+    <h2>
+        Personal Information
+    </h2>
+
+
+    <form class="nutrition-form"
+          method="POST"
+          action="{{ url_for('profile') }}">
+
+
+        <div class="form-grid">
+
+
+            <!-- Name -->
+
+            <div class="form-group">
+
+                <label>Name</label>
+
+                <input
+    type="text"
+    name="name"
+    value="{{ name }}"
+    placeholder="Enter your name"
+    required>
+
+            </div>
+
+
+
+            <!-- Age -->
+
+            <div class="form-group">
+
+                <label>Age</label>
+
+                <input
+    type="number"
+    name="age"
+    value="{{ age }}"
+    placeholder="Enter your age"
+    required>
+
+</div>
+
+
+            <!-- Gender -->
+
+            <div class="form-group">
+
+                <label>Gender</label>
+
+                <select name="gender" required>
+
+                    <option value="Male" {% if gender == "Male" %}selected{% endif %}>
+    Male
+</option>
+
+<option value="Female" {% if gender == "Female" %}selected{% endif %}>
+    Female
+</option>
+
+<option value="Other" {% if gender == "Other" %}selected{% endif %}>
+    Other
+</option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Height -->
+
+            <div class="form-group">
+
+                <label>Height (cm)</label>
+
+                <input
+    type="number"
+    name="height"
+    value="{{ height }}"
+    placeholder="Enter your height"
+    required>
+
+            </div>
+
+            <!-- Weight -->
+
+            <div class="form-group">
+
+                <label>Weight (kg)</label>
+
+                <input
+    type="number"
+    name="weight"
+    value="{{ weight }}"
+    placeholder="Enter your weight"
+    required>
+
+            </div>
+
+
+
+            <!-- Activity Level -->
+
+            <div class="form-group">
+
+                <label>Activity Level</label>
+
+                <select name="activity" required>
+
+                   <option value="Low" {% if activity == "Low" %}selected{% endif %}>
+    Low
+</option>
+
+<option value="Moderate" {% if activity == "Moderate" %}selected{% endif %}>
+    Moderate
+</option>
+
+<option value="High" {% if activity == "High" %}selected{% endif %}>
+    High
+</option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Food Preference -->
+
+            <div class="form-group">
+
+                <label>Food Preference</label>
+
+                <select name="food_preference" required>
+<option value="Vegetarian" {% if food_preference == "Vegetarian" %}selected{% endif %}>
+    Vegetarian
+</option>
+
+<option value="Non-Vegetarian" {% if food_preference == "Non-Vegetarian" %}selected{% endif %}>
+    Non-Vegetarian
+</option>
+
+<option value="Vegan" {% if food_preference == "Vegan" %}selected{% endif %}>
+    Vegan
+</option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Health Goal -->
+
+            <div class="form-group">
+
+                <label>Health Goal</label>
+
+                <select name="goal" required>
+
+                    <option value="Weight Loss" {% if goal == "Weight Loss" %}selected{% endif %}>
+    Weight Loss
+</option>
+
+<option value="Weight Gain" {% if goal == "Weight Gain" %}selected{% endif %}>
+    Weight Gain
+</option>
+
+<option value="Maintain Weight" {% if goal == "Maintain Weight" %}selected{% endif %}>
+    Maintain Weight
+</option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- BUTTON -->
+
+        <div class="form-button">
+
+            <button type="submit"
+                    class="analyze-btn">
+
+                Save & Analyze
+
+            </button>
+
+        </div>
+
+
+    </form>
+
+</section>
+
+
+
+<!-- ================= HEALTH ANALYSIS ================= -->
+
+<section class="health-analysis">
+
+    <h2>
+        🩺 Health Analysis
+    </h2>
+
+
+    <div class="health-cards">
+
+
+        <!-- BMI -->
+
+        <div class="health-card">
+
+            <p class="health-label">
+                BMI
+            </p>
+
+            <h3>
+                --
+            </h3>
+
+            <span>
+                Body Mass Index
+            </span>
+
+        </div>
+
+
+
+        <!-- Calories -->
+
+        <div class="health-card">
+
+            <p class="health-label">
+                Daily Calories
+            </p>
+
+            <h3>
+                --
+            </h3>
+
+            <span>
+                kcal/day
+            </span>
+
+        </div>
+
+
+
+        <!-- Water -->
+
+        <div class="health-card">
+
+            <p class="health-label">
+                Water Intake
+            </p>
+
+            <h3>
+                --
+            </h3>
+
+            <span>
+                Liters/day
+            </span>
+
+        </div>
+
+
+
+        <!-- Goal -->
+
+        <div class="health-card">
+
+            <p class="health-label">
+                Health Goal
+            </p>
+
+            <h3>
+                --
+            </h3>
+
+            <span>
+                Your selected goal
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- HEALTH MESSAGE -->
+
+    <div class="health-message">
+
+        <p>
+            Fill in your profile details and click
+            <strong>Save & Analyze</strong>
+            to get your personalized AI health analysis.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

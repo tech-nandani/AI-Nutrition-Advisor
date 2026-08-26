@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Nutrition Advisor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>🥗 AI Nutrition Advisor</h1>
+            <p>Your Personal AI-Powered Nutrition Assistant</p>
+        </header>
+
+        <div class="form-container">
+
+            <h2>Enter Your Details</h2>
+
+            <form>
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" placeholder="Enter your age">
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+
+                    <select>
+                        <option>Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Height (cm)</label>
+                    <input type="number"
+                           placeholder="Enter height in cm">
+                </div>
+
+                <div class="form-group">
+                    <label>Weight (kg)</label>
+                    <input type="number"
+                           placeholder="Enter weight in kg">
+                </div>
+
+                <div class="form-group">
+                    <label>Health Goal</label>
+
+                    <select>
+                        <option>Select Your Goal</option>
+                        <option>Weight Loss</option>
+                        <option>Weight Gain</option>
+                        <option>Maintain Weight</option>
+                    </select>
+                </div>
+
+                <button type="button">
+                    Get AI Recommendation
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
