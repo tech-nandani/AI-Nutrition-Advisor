@@ -8,9 +8,19 @@ Dashboard | AI Nutrition Advisor
 
 <div class="dashboard-page">
 
+    <section class="dashboard-banner">
+        <div class="dashboard-banner-copy">
+            <p class="dashboard-eyebrow">NUTRIGENIE · YOUR WELLNESS COMPANION</p>
+            <h1> Nourish your body.<br><em>Grow into your best self.</em></h1>
+            <p>Small, informed choices create lasting change. Explore your health overview, discover meals that suit you, and keep moving forward at your own pace.</p>
+            <a href="{{ url_for('profile') }}" class="banner-link">Personalize my plan <span>→</span></a>
+        </div>
+        <div class="dashboard-banner-art" aria-hidden="true"><span>🥗</span><span>🍋</span><span>🥑</span><span>🍎</span></div>
+    </section>
+
     <div class="page-header">
-        <h1>Health Analysis</h1>
-        <p>Your personalized nutrition and health overview.</p>
+        <h1>Your health at a glance</h1>
+        <p>A clear starting point for healthier days and better habits.</p>
     </div>
 
     {% if name %}
