@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nutrigenie creates thoughtful, personal nutrition plans for everyday life.">
+    <title>Nutrigenie | Personal nutrition, made simpler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="welcome-page">
+    <div class="splash-screen" id="splash-screen" aria-label="Loading Nutrigenie">
+        <img class="splash-logo" src="{{ url_for('static', filename='nutrigenie-logo.png') }}" alt="Nutrigenie logo">
+        <p class="splash-name">Nutrigenie</p>
+        <p class="splash-tagline">Eat with intention.</p>
+        <div class="splash-progress" aria-hidden="true"><span></span></div>
+    </div>
+
+    <div class="welcome-shell" id="welcome-content">
+        <header class="welcome-header">
+            <a class="brand" href="{{ url_for('home') }}" aria-label="Nutrigenie home">
+                <img class="brand-logo" src="{{ url_for('static', filename='nutrigenie-logo.png') }}" alt="Nutrigenie logo">
+                <span>Nutrigenie</span>
+            </a>
+            <nav class="welcome-nav" aria-label="Main navigation">
+                <a href="#about">About us</a>
+                <a href="#contact">Contact us</a>
+                <a href="#help">Help</a>
+            </nav>
+            <a class="header-action" href="{{ url_for('register') }}">Login / Register <span>↗</span></a>
+        </header>
+
+        <main>
+            <section class="welcome-hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">A gentler way to eat well <span></span></p>
+                    <h1>Make food feel <em>personal</em> again.</h1>
+                    <p class="hero-description">Nutrigenie turns your goals, preferences, and everyday rhythm into nutrition guidance that fits real life. No rigid rules. Just smarter choices, made for you.</p>
+                    <div class="hero-actions">
+                        <a class="primary-action" href="{{ url_for('register') }}">Begin your journey <span>→</span></a>
+                        <a class="text-action" href="#about">Discover Nutrigenie <span>↓</span></a>
+                    </div>
+                    <div class="hero-note"><span class="note-stars">★★★★★</span><span>Loved by people building better habits</span></div>
+                </div>
+                <div class="hero-visual">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=1000&q=85" alt="A colorful nourishing salad with fresh vegetables">
+                    </div>
+                    <div class="floating-card nutrition-card"><span class="card-icon">✦</span><span><strong>Made for you</strong><small>Plans that fit your life</small></span></div>
+                    <div class="floating-card quote-card"><span class="quote-mark">“</span><p>Take care of your body. It’s the only place you have to live.</p><small>— Jim Rohn</small></div>
+                    <div class="sun-shape" aria-hidden="true"></div>
+                </div>
+            </section>
+
+            <section class="trust-strip" aria-label="Nutrigenie benefits">
+                <span><b>01</b> Know your body</span><span><b>02</b> Find your balance</span><span><b>03</b> Feel the difference</span><span class="trust-caption">Nutrition guidance with a human touch.</span>
+            </section>
+
+            <section class="about-section" id="about">
+                <div class="section-heading"><p class="eyebrow">Why Nutrigenie</p><h2>Good nutrition should<br><em>meet you where you are.</em></h2></div>
+                <div class="about-copy"><p>Healthy eating is not about chasing perfection. It is about understanding your body and building small, sustainable choices around the life you already live.</p><p>Nutrigenie brings thoughtful nutrition principles and intelligent personalization together, so every recommendation feels clear, practical, and genuinely yours.</p></div>
+                <div class="about-approach"><span class="approach-label">OUR APPROACH</span><strong>Better choices begin with better understanding.</strong><span class="approach-line"></span><p>From your first profile to your daily progress, we turn personal insight into guidance you can use.</p></div>
+                <div class="value-grid">
+                    <article><span class="value-number">01</span><h3>Personal, not prescriptive</h3><p>Your goals and food preferences shape every recommendation.</p></article>
+                    <article><span class="value-number">02</span><h3>Progress you can see</h3><p>Simple tracking helps turn good intentions into lasting habits.</p></article>
+                    <article><span class="value-number">03</span><h3>Clarity over noise</h3><p>Useful guidance, explained clearly, without the overwhelm.</p></article>
+                </div>
+            </section>
+
+            <section class="review-section" id="help">
+                <div class="review-intro"><p class="eyebrow">Real people, real routines</p><h2>Small changes.<br><em>Big feelings.</em></h2><p>From first steps to fresh starts, Nutrigenie is here to make the next choice feel a little easier.</p></div>
+                <div class="review-carousel" aria-live="polite">
+                    <article class="review-card is-active"><div class="review-stars">★★★★★</div><blockquote>“For the first time, my meal plan feels like it was made for my actual life. I have more energy, and I am not constantly starting over.”</blockquote><div class="review-person"><span class="person-avatar">DC</span><span><strong>Devisri Chirraboina</strong><small>Nutrigenie member</small></span></div></article>
+                    <article class="review-card"><div class="review-stars">★★★★★</div><blockquote>“The guidance is simple enough to follow on busy days. I finally understand what balanced eating looks like for me.”</blockquote><div class="review-person"><span class="person-avatar">NS</span><span><strong>Nandani Singh</strong><small>Nutrigenie member</small></span></div></article>
+                    <article class="review-card"><div class="review-stars">★★★★★</div><blockquote>“I stopped thinking of health as an all-or-nothing project. The small wins are adding up, and I feel lighter in every way.”</blockquote><div class="review-person"><span class="person-avatar">SS</span><span><strong>Saarah Shaikh</strong><small>Nutrigenie member</small></span></div></article>
+                    <article class="review-card"><div class="review-stars">★★★★★</div><blockquote>“My recommendations respect the food I already love. That made it much easier to stay consistent.”</blockquote><div class="review-person"><span class="person-avatar">SP</span><span><strong>Shivani Pandey</strong><small>Nutrigenie member</small></span></div></article>
+                    <div class="review-dots" aria-label="Review navigation"><button class="active" type="button" aria-label="Show review 1"></button><button type="button" aria-label="Show review 2"></button><button type="button" aria-label="Show review 3"></button><button type="button" aria-label="Show review 4"></button></div>
+                </div>
+            </section>
+
+            <section class="contact-section" id="contact"><div><p class="eyebrow">A healthier chapter starts here</p><h2>Let’s make your<br><em>everyday feel better.</em></h2></div><div class="contact-action"><p>Questions, thoughts, or just want to say hello?</p><a href="mailto:hello@nutrigenie.com">hello@nutrigenie.com <span>↗</span></a></div></section>
+        </main>
+
+        <footer class="welcome-footer"><a class="brand" href="{{ url_for('home') }}"><img class="brand-logo" src="{{ url_for('static', filename='nutrigenie-logo.png') }}" alt="Nutrigenie logo"><span>Nutrigenie</span></a><p>© 2026 Nutrigenie. Nourish your next.</p><div><a href="#about">About us</a><a href="#contact">Contact</a><a href="#help">Help</a></div></footer>
+    </div>
+
+    <script>
+        window.setTimeout(function () {
+            document.body.classList.add('splash-complete');
+            window.setTimeout(function () {
+                document.getElementById('splash-screen').remove();
+            }, 700);
+        }, 3000);
+        const reviewCards = document.querySelectorAll('.review-card');
+        const reviewDots = document.querySelectorAll('.review-dots button');
+        let reviewIndex = 0;
+        function showReview(index) {
+            reviewCards.forEach((card, cardIndex) => card.classList.toggle('is-active', cardIndex === index));
+            reviewDots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index));
+            reviewIndex = index;
+        }
+        reviewDots.forEach((dot, index) => dot.addEventListener('click', () => showReview(index)));
+        window.setInterval(() => showReview((reviewIndex + 1) % reviewCards.length), 5000);
+    </script>
+</body>
+</html>

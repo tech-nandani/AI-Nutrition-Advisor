@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Nutrigenie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="register-page">
+    <main class="register-layout">
+        <section class="register-brand-panel">
+            <a class="register-logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='nutrigenie-logo.png') }}" alt="Nutrigenie logo"></a>
+            <p class="eyebrow">Your next healthy chapter</p>
+            <h1>Start with a choice that is <em>yours.</em></h1>
+            <p>Tell us a little about yourself, then we will shape your nutrition journey around what matters to you.</p>
+            <a class="back-link" href="{{ url_for('home') }}">← Back to Nutrigenie</a>
+        </section>
+        <section class="register-form-panel">
+            <div class="register-form-heading"><p class="eyebrow">Welcome in</p><h2>{{ 'Log in to Nutrigenie' if login_mode else 'Create your account' }}</h2><p>{{ 'Your account is ready. Please log in to continue.' if login_mode else 'One simple step toward guidance that fits your life.' }}</p></div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                    <p class="form-message {{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endwith %}
+            <form method="post" action="{{ url_for('login' if login_mode else 'register') }}">
+                {% if not login_mode %}
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" placeholder="Enter your name" required>
+                {% endif %}
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                <label for="password">{{ 'Password' if login_mode else 'Create a password' }}</label>
+                <input id="password" name="password" type="password" placeholder="{{ 'Enter your password' if login_mode else 'At least 8 characters' }}" {% if not login_mode %}minlength="8"{% endif %} required>
+                <button class="register-submit" type="submit">{{ 'Log in' if login_mode else 'Create account' }} <span>→</span></button>
+            </form>
+            <p class="auth-switch">{{ 'New to Nutrigenie?' if login_mode else 'Already registered?' }} <a href="{{ url_for('register', mode='' if login_mode else 'login') }}">{{ 'Create an account' if login_mode else 'Log in here' }}</a></p>
+            <p class="form-note">By continuing, you agree to use Nutrigenie as a wellness guide, not a replacement for medical advice.</p>
+        </section>
+    </main>
+</body>
+</html>

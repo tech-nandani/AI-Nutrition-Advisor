@@ -31,13 +31,11 @@
             <!-- Logo -->
             <div class="logo">
 
-                <div class="logo-icon">
-                    🌿
-                </div>
+                <img class="sidebar-logo" src="{{ url_for('static', filename='nutrigenie-logo.png') }}" alt="Nutrigenie logo">
 
                 <div class="logo-text">
-                    <h2>AI Nutrition</h2>
-                    <p>Advisor</p>
+                    <h2>Nutrigenie</h2>
+                    <p>AI Nutrition Advisor</p>
                 </div>
 
             </div>
@@ -47,7 +45,7 @@
 
             <nav class="sidebar-menu">
 
-                <a href="{{ url_for('home') }}">
+                <a href="{{ url_for('dashboard') }}">
                     <span class="menu-icon">⌂</span>
                     <span>Dashboard</span>
                 </a>
@@ -89,7 +87,7 @@
 
             <div class="sidebar-bottom">
 
-                <a href="#">
+                <a href="{{ url_for('logout') }}">
                     <span class="menu-icon">⇥</span>
                     <span>Logout</span>
                 </a>

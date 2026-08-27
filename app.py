@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from werkzeug.security import check_password_hash, generate_password_hash
 import os
 import sqlite3
 from datetime import datetime
@@ -108,6 +109,15 @@ def initialize_database():
 
     """)
 
+    connection.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            email TEXT UNIQUE NOT NULL,
+            password_hash TEXT NOT NULL
+        )
+    """)
+
     connection.commit()
 
     connection.close()
@@ -119,7 +129,53 @@ initialize_database()
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("welcome.html")
+
+
+# ---------------- REGISTRATION ----------------
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        name = request.form.get("name", "").strip()
+        email = request.form.get("email", "").strip().lower()
+        password = request.form.get("password", "")
+        connection = get_db_connection()
+
+        try:
+            connection.execute(
+                "INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)",
+                (name, email, generate_password_hash(password))
+            )
+            connection.commit()
+        except sqlite3.IntegrityError:
+            connection.close()
+            flash("This email is already registered. Please log in.", "error")
+            return redirect(url_for("register", mode="login"))
+
+        connection.close()
+        flash("Registration complete. Please log in to continue.", "success")
+        return redirect(url_for("register", mode="login"))
+
+    return render_template("register.html", login_mode=request.args.get("mode") == "login")
+
+
+@app.route("/login", methods=["POST"])
+def login():
+    email = request.form.get("email", "").strip().lower()
+    password = request.form.get("password", "")
+    connection = get_db_connection()
+    user = connection.execute("SELECT * FROM users WHERE email = ?", (email,)).fetchone()
+    connection.close()
+
+    if user is None or not check_password_hash(user["password_hash"], password):
+        flash("Incorrect email or password. Please try again.", "error")
+        return redirect(url_for("register", mode="login"))
+
+    session["account_name"] = user["name"]
+    session["account_email"] = user["email"]
+    session["name"] = user["name"]
+    return redirect(url_for("profile"))
 
 
 # ---------------- PROFILE ----------------
